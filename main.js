@@ -1,4 +1,4 @@
-// Returns Sub from Reddit
+// Fetch from Reddit API
 function fetchSub(sub) {
 	fetch(
 			`https://api.pushshift.io/reddit/search/submission/?q=${sub}&is_video=true&subreddit=css&subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev`
@@ -28,4 +28,9 @@ function displayInfo(object) {
 	link.textContent = object.link;
 }
 
-fetchSub("world");
+// Search Bar Functionality 
+const searchBarBtn = document.querySelector(".search-bar__btn");
+searchBarBtn.addEventListener("click", () => {
+	let searchInput = document.querySelector("#search-bar__input");
+	fetchSub(searchInput.value);
+})
