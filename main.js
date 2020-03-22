@@ -1,3 +1,16 @@
+// -----------Global variables -----------
+// Search bar
+const searchBarBtn = document.querySelector(".search-bar__btn");
+// Fetch car results
+let cardContainer = document.querySelector(".card-container")
+
+// -----------Functions -----------
+// Resets display and content 
+function reset() {
+	cardContainer.style.display = "none";
+	cardContainer.value = "";
+}
+
 // Fetch from Reddit API
 function fetchSub(sub) {
 	fetch(
@@ -16,7 +29,9 @@ function fetchSub(sub) {
 		.catch(console.error);
 }
 
+// Displays information into the DOM
 function displayInfo(object) {
+	createCard();
 	const title = document.querySelector(".info__title");
 	const sub = document.querySelector(".info__sub");
 	const url = document.querySelector(".info__url");
@@ -28,13 +43,22 @@ function displayInfo(object) {
 	link.textContent = object.link;
 }
 
-// Search Bar Functionality 
-const searchBarBtn = document.querySelector(".search-bar__btn");
-searchBarBtn.addEventListener("click", () => {
+// Creates card form template
+function createCard() {
+	let temp = document.querySelector(".card-template");
+	let clone = temp.content.cloneNode(true);
+	cardContainer.appendChild(clone);
+}
+
+// Search bar functionality 
+function searchTheInput() {
+	reset();
+	cardContainer.style.display = "block";
 	let searchInput = document.querySelector("#search-bar__input");
-	if (searchInput.value === "") {
-		alert("Please input text")
-	} else {
-		fetchSub(searchInput.value);
-	}
-})
+	(searchInput.value === "") ? alert("Please input text"): fetchSub(searchInput.value);
+}
+searchBarBtn.addEventListener("click", searchTheInput);
+
+
+// ----------- init -----------
+reset();
