@@ -1,0 +1,63 @@
+/* ----------Whole page---------- */
+.display {
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------Head---------- */
+.header {
+    position: relative;
+    height: 30vh;
+    margin-bottom: 5%;
+    background-color: aquamarine;
+
+}
+
+.header__title {
+    margin: 0;
+    padding: 7.5vh 1rem 1rem 1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Comfortaa', cursive;
+}
+
+/* ----------Search Bar---------- */
+.search-bar {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 1rem 1rem 5vh 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+#search-bar__input {
+    box-sizing: border-box;
+    width: 70%;
+    height: 2rem;
+    border: none;
+}
+
+.search-bar__btn {
+    box-sizing: border-box;
+    margin: 0;
+    width: 10%;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar__btn:hover {
+    background-color: coral;
+    transition: 0.4s;
+}
+
+/* ----------Fetch Results --------- */
+.info {
+    margin: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    background-color: coral;
+
+}
