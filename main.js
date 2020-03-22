@@ -1,11 +1,11 @@
 // Returns Sub from Reddit
 function fetchSub(sub) {
 	fetch(
-		`https://api.pushshift.io/reddit/search/submission/?q=${sub}&is_video=true&subreddit=css&subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev`
-	)
+			`https://api.pushshift.io/reddit/search/submission/?q=${sub}&is_video=true&subreddit=css&subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev`
+		)
 		.then(res => res.json())
 		.then(res => {
-            let selectResult = res.data[0];
+			let selectResult = res.data[0];
 			displayInfo({
 				title: selectResult.title,
 				sub: selectResult.subreddit,
@@ -16,14 +16,16 @@ function fetchSub(sub) {
 		.catch(console.error);
 }
 
-function displayInfo {
-    const title = document.querySelector(".");
-    const sub = document.querySelector(".");
-    const url = document.querySelector(".");
-    const link = document.querySelector(".");
+function displayInfo(object) {
+	const title = document.querySelector(".info__title");
+	const sub = document.querySelector(".info__sub");
+	const url = document.querySelector(".info__url");
+	const link = document.querySelector(".info__link");
 
-
-
+	title.textContent = object.title;
+	sub.textContent = object.sub;
+	url.textContent = object.url;
+	link.textContent = object.link;
 }
 
-fetchSub("animated sidebar menu with html & css");
+fetchSub("world");
