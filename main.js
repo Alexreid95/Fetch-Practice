@@ -32,5 +32,9 @@ function displayInfo(object) {
 const searchBarBtn = document.querySelector(".search-bar__btn");
 searchBarBtn.addEventListener("click", () => {
 	let searchInput = document.querySelector("#search-bar__input");
-	fetchSub(searchInput.value);
+	if (searchInput.value === "") {
+		alert("Please input text")
+	} else {
+		fetchSub(searchInput.value);
+	}
 })
