@@ -1,15 +1,25 @@
+/* CSS Variables */
+:root {
+	--green: rgb(163, 233, 206);
+	--blue: rgb(110, 211, 217);
+	--pink: rgb(234, 177, 178);
+	--grey: rgb(83, 139, 138);
+	--white: rgb(249, 245, 241);
+	--black: rgb(1, 0, 1);
+}
+
 /* ----------Whole page---------- */
 .display {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 /* ----------Head---------- */
 .header {
 	position: relative;
 	height: 30vh;
-	margin-bottom: 5%;
-	background-color: aquamarine;
+	box-shadow: -0.1rem -0.5rem 2rem 1rem var(--grey);
 }
 
 .header__title {
@@ -18,13 +28,13 @@
 	text-align: center;
 	font-size: 2rem;
 	font-family: "Comfortaa", cursive;
+	color: var(--black);
 }
 
 /* ----------Search Bar---------- */
 .search-bar {
 	position: absolute;
 	bottom: 0;
-	box-sizing: border-box;
 	padding: 1rem 1rem 5vh 1rem;
 	width: 100%;
 	text-align: center;
@@ -33,37 +43,77 @@
 #search-bar__input {
 	box-sizing: border-box;
 	width: 70%;
-	height: 2rem;
+	height: 2.5rem;
 	border: none;
+	border-radius: 1rem;
+	padding-left: 2rem;
+	font-size: 1.2rem;
 }
 
 .search-bar__btn {
 	box-sizing: border-box;
 	margin: 0;
-	width: 10%;
+	width: 2rem;
 	height: 2rem;
 	border: none;
+	border-radius: 1rem;
 	cursor: pointer;
+	background-color: var(--blue);
 }
 
 .search-bar__btn:hover {
-	background-color: coral;
+	background-color: var(--pink);
 	transition: 0.4s;
 }
 
 /* ----------Fetch Results --------- */
 .card-container {
-	margin: 1rem;
 	padding: 1rem;
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-	background-color: coral;
+	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 	font-family: "Comfortaa", cursive;
+	background: linear-gradient(200deg, var(--green), var(--blue), var(--pink));
+	box-shadow: 10rem 10rem 10rem var(--white);
+
 }
 
 .card-wrap {
-	margin: 1rem;
-	display: grid;
-	background-color: cornsilk;
+	position: relative;
+	margin: 1.5rem;
+	padding: 1.5rem 2rem;
+	border-radius: 1rem;
+	overflow-wrap: break-word;
+	background-color: white;
+}
+
+/* ----------Card info---------- */
+.info__title {
+	margin-bottom: 0.2rem;
+	font-style: normal;
+	font-size: 1.2rem;
+}
+
+
+.info__sub {
+	font-style: italic;
+	font-size: 0.8rem;
+}
+
+/* ----------Icons---------- */
+.icon-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.icon {
+	font-size: 3rem;
+	margin: 0.5rem;
+	color: var(--pink);
+}
+
+.icon:hover {
+	color: var(--grey);
+	transition: 0.3s;
+	transform: scale(1.1);
 }
