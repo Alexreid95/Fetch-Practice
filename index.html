@@ -16,7 +16,7 @@
         <section class="search-bar">
             <form action="">
                 <label for="search-bar__input"></label>
-                <input id="search-bar__input" type="text" placeholder="Search for Tutorials...">
+                <input id="search-bar__input" type="text" placeholder="Search for Tutorials..." required>
                 <button type="button" class="search-bar__btn"><i class="fas fa-search"></i></button>
             </form>
         </section>
@@ -26,12 +26,13 @@
 
     <template class="card-template">
         <section class="card-wrap">
-            <h3 class="info__title"></h3>
-            <h4 class="info__sub"></h4>
-            <p class="info__url"></p>
-            <p class="info__link"></p>
+            <p class="info__title"></p>
+            <p class="info__sub"></p>
+            <section class="icon-container">
+                <a class="info__url" target="_blank"><i class="fab fa-youtube icon"></i></a>
+                <a class="info__link" target="_blank"><i class="fab fa-reddit-square icon"></i></a>
+            </section>
         </section>
-
     </template>
 
 
