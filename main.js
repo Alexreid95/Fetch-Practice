@@ -82,9 +82,7 @@ function searchTheInput() {
 	(searchInput.value === "") ? alert("Please input text"): fetchSub(searchInput.value);
 }
 searchBarBtn.addEventListener("click", searchTheInput);
-searchInput.addEventListener("keyup", () => {
-	(e.key === 'Enter' || e.keycode === 13) && searchTheInput
-});
+searchInput.addEventListener("keypress", e => (e.keyCode == 13) && searchTheInput());
 
 
 // Toggles loading sign to off
