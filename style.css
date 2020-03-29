@@ -71,7 +71,7 @@
 
 /* ----------Loading sign---------- */
 .loader {
-	margin: 20% 5%;
+	margin: 10% 5%;
 	display: flex;
 	justify-content: center;
 }
