@@ -2,8 +2,9 @@
 // Search bar
 let searchInput = document.querySelector("#search-bar__input");
 const searchBarBtn = document.querySelector(".search-bar__btn");
-// Subreddits to fetch from 
+// Fetch result filter 
 const subFilter = "subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev&subreddit=Frontend&subreddit=css&subreddit=AskProgramming&subreddit=programming&subreddit=learnprogramming&subreddit=Coding&subreddit=JavaScript&subreddit=LearnJavaScript=&subreddit=PHP&subreddit=Learnwebdev";
+const resultSize = "size=14";
 // Fetch
 let cardContainer = document.querySelector(".card-container");
 // loading 
@@ -20,7 +21,7 @@ function reset() {
 // Fetch from Reddit API
 function fetchSub(sub) {
 	fetch(
-			`https://api.pushshift.io/reddit/search/submission/?q=${sub}&domain=youtube.com&size=14&${subFilter}`
+			`https://api.pushshift.io/reddit/search/submission/?q=${sub}&domain=youtube.com&${resultSize}&${subFilter}`
 		)
 		// Response changed to JSON format 
 		.then(res => res.json())
