@@ -2,9 +2,9 @@
 // Search bar
 const searchBarBtn = document.querySelector(".search-bar__btn");
 // Fetch
-let cardContainer = document.querySelector(".card-container")
+let cardContainer = document.querySelector(".card-container");
 // loading 
-let loader = document.querySelector(".loader")
+let loader = document.querySelector(".loader");
 
 // -----------Functions -----------
 // Resets display and content 
@@ -76,7 +76,7 @@ function createCard() {
 function searchTheInput() {
 	reset();
 	let searchInput = document.querySelector("#search-bar__input");
-	loader.style.display = "block";
+	loader.style.display = "flex";
 	(searchInput.value === "") ? alert("Please input text"): fetchSub(searchInput.value);
 }
 searchBarBtn.addEventListener("click", searchTheInput);
