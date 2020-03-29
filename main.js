@@ -1,5 +1,6 @@
 // -----------Global variables -----------
 // Search bar
+let searchInput = document.querySelector("#search-bar__input");
 const searchBarBtn = document.querySelector(".search-bar__btn");
 // Subreddits to fetch from 
 const subFilter = "subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev&subreddit=Frontend&subreddit=css&subreddit=AskProgramming&subreddit=programming&subreddit=learnprogramming&subreddit=Coding&subreddit=JavaScript&subreddit=LearnJavaScript=&subreddit=PHP&subreddit=Learnwebdev";
@@ -77,11 +78,14 @@ function createCard() {
 // Search bar functionality 
 function searchTheInput() {
 	reset();
-	let searchInput = document.querySelector("#search-bar__input");
 	loader.style.display = "flex";
 	(searchInput.value === "") ? alert("Please input text"): fetchSub(searchInput.value);
 }
 searchBarBtn.addEventListener("click", searchTheInput);
+searchInput.addEventListener("keyup", () => {
+	(e.key === 'Enter' || e.keycode === 13) && searchTheInput
+});
+
 
 // Toggles loading sign to off
 function toggleLoadingOff() {
