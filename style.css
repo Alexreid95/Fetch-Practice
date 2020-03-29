@@ -79,6 +79,24 @@
 .loader__value {
 	font-size: 1.5rem;
 	font-family: "Comfortaa", cursive;
+	color: var(--grey);
+	animation: loading 4s infinite;
+}
+
+@keyframes loading {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		color: var(--black);
+		opacity: 0.5;
+		transform: scale(1.025);
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 
