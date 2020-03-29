@@ -2,7 +2,7 @@
 // Search bar
 const searchBarBtn = document.querySelector(".search-bar__btn");
 // Subreddits to fetch from 
-const subFilter = "subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev";
+const subFilter = "subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev&subreddit=Frontend&subreddit=css&subreddit=AskProgramming&subreddit=programming&subreddit=learnprogramming&subreddit=Coding&subreddit=JavaScript&subreddit=LearnJavaScript=&subreddit=PHP&subreddit=Learnwebdev";
 // Fetch
 let cardContainer = document.querySelector(".card-container");
 // loading 
