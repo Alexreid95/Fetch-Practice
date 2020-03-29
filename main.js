@@ -3,12 +3,15 @@
 const searchBarBtn = document.querySelector(".search-bar__btn");
 // Fetch
 let cardContainer = document.querySelector(".card-container")
+// loading 
+let loader = document.querySelector(".loader")
 
 // -----------Functions -----------
 // Resets display and content 
 function reset() {
 	cardContainer.style.visibility = "hidden";
 	cardContainer.value = "";
+	loader.style.display = "none";
 }
 
 // Fetch from Reddit API
@@ -16,7 +19,9 @@ function fetchSub(sub) {
 	fetch(
 			`https://api.pushshift.io/reddit/search/submission/?q=${sub}&domain=youtube.com&size=14&subreddit=css&subreddit=WebdevTutorials&subreddit=web_design&subreddit=webdev`
 		)
+		// Response changed to JSON format 
 		.then(res => res.json())
+		// Fetch result 
 		.then(res => {
 			for (let i = 0; i < res.data.length; i++) {
 				// Selects each array element from fetch result
@@ -52,7 +57,12 @@ function fetchSub(sub) {
 			}
 
 		})
-		.catch(console.error);
+		// Toggles loading off after fetch is completed 
+		.then(toggleLoadingOff)
+		// Toggles result display on after fetch is completed 
+		.then(toggleDisplayOn)
+		//Catches errors 
+		.catch(console.error)
 }
 
 // Creates card from template
@@ -65,11 +75,21 @@ function createCard() {
 // Search bar functionality 
 function searchTheInput() {
 	reset();
-	cardContainer.style.visibility = "visible";
 	let searchInput = document.querySelector("#search-bar__input");
+	loader.style.display = "block";
 	(searchInput.value === "") ? alert("Please input text"): fetchSub(searchInput.value);
 }
 searchBarBtn.addEventListener("click", searchTheInput);
+
+// Toggles loading sign to off
+function toggleLoadingOff() {
+	loader.style.display = "none";
+}
+
+// Toggles result display  on 
+function toggleDisplayOn() {
+	cardContainer.style.visibility = "visible";
+}
 
 
 // ----------- init -----------
